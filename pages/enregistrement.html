@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enregistrement</title>
+  <link rel="stylesheet" type="text/css" href="../css/mesStyles.css">
+</head>
+<body>
+<form action="../php/enregistrement.php" method="post" onsubmit="return verif();">
+  <fieldset>
+    <legend>Expediteur</legend>
+    <label for="expediteur">Cin Expediteur:</label>
+    <input type="text" id="expediteur" name="expediteur">
+  </fieldset>
+  <br>
+  <fieldset>
+    <legend>Destinaire</legend>
+    <label style="width: 100px; margin: 5px; padding: 5px; color: red" for="teldist">Tel Destinaire:</label>
+    <input style="font-size: 14px" type="text" id="teldist" name="teldist">
+    <br>
+    <br>
+    <label style="width: 100px; margin: 5px; padding: 5px; color: red" for="teldist">Nom Destinaire:</label>
+    <input style="font-size: 14px" type="text" id="nomdist" name="nomdist">
+    <br>
+    <br>
+    <label style="width: 100px; margin: 5px; padding: 5px; color: red" for="teldist">Adress Destinaire:</label>
+    <input style="font-size: 14px" type="text" id="adressdist" name="addressdist">
+    <br>
+    <br>
+    <label style="width: 100px; margin: 5px; padding: 5px; color: red" for="codepostal">Code Postal:</label>
+    <input style="font-size: 14px" type="text" id="codepostal" name="codepostal">
+  </fieldset>
+  <br>
+  <fieldset>
+    <legend>Colis:</legend>
+    <label for="teldist">Fragile:</label>
+    <?php
+    $cnx = mysqli_connect("localhost", "root", "wesker", "BD_441920") or die(mysqli_error($cnx));
+
+    $request_one = "SELECT idTrans, nomTrans from `transporteur`";
+    $response_one = mysqli_query($cnx, $request_one) or die(mysqli_error($cnx));
+    echo ("<input type='radio' name='fragile' value='N' id='fnon'> Non");
+    echo ("<input type='radio' name='fragile' value='F' id='foui'> Oui");
+    echo "<br>";
+    echo "<br>";
+    echo "<label for='transporteur'>Transporteur:</label>";
+    echo "<select id='transporteur' name='transporteur'>";
+    echo "<option value='vide'>Choisir un transporteur</option>";
+    while ($T = mysqli_fetch_array($response_one)) {
+      echo "<option value='$T[0]'>$T[1]</option>";
+    }
+    echo "</select>";
+    mysqli_close($cnx);
+    ?>
+  </fieldset>
+  <br>
+  <fieldset style="text-align: center">
+    <input type="submit" value="Ajouter">
+    <input type="reset" value="Annuler">
+  </fieldset>
+</form>
+<script src="../js/controle.js"></script>
+</body>
+</html>

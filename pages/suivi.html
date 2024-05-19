@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suivi</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../css/mesStyles.css" />
+<body>
+<form action="../php/suivi.php" method="post" onsubmit="return verif2();">
+  <fieldset>
+    <legend>Suivi des colis</legend>
+    <label>Périodes de depot entre les dates:</label>
+    <input type="date" name="startdate" id="startdate">
+    et
+    <input type="date" name="enddate" id="enddate">
+    <br>
+    <br>
+    <label>Etat de livraision:</label>
+    <input type="checkbox" name="nl" id="nl">Non Livré
+    <input type="checkbox" name="l" id="l">Livré
+    <br>
+    <br>
+    <input type="reset" value="Annuler">
+    <input type="submit" value="Afficher">
+  </fieldset>
+</form>
+<script src="../js/controle.js"></script>
+</body>
+</html>

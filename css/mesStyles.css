@@ -1,0 +1,51 @@
+header {
+  background-color: #11abf33f;
+  text-align: center;
+}
+
+label {
+  width: 15%;
+  display: inline-block;
+}
+
+input [type="radio"] {
+  width: 35px;
+}
+
+input [type="input"] {
+  width: 100px;
+
+}
+
+h1 {
+  transition: transform 0.5s ease;
+}
+
+h1:hover {
+  transform: translate(100px, 200px);
+}
+
+nav {
+  background-color: #d9f0f5;
+  width: 30%;
+  height: 480px;
+  float: left;
+}
+
+section {
+  background-color: #eafafa;
+  width: 70%;
+  height: 480px;
+  float: left;
+}
+
+iframe {
+  width: 99%;
+  height: 470px;
+}
+
+footer {
+  text-align: center;
+  background-color: yellow;
+  font-size: x-large;
+}
